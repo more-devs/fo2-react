@@ -1,15 +1,22 @@
-// src/components/PersonaForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const PersonaForm = ({ onSubmit }) => {
-    const [nombre, setNombre] = useState('');
-    const [edad, setEdad] = useState('');
+const PersonaForm = ({ onSave, editData }) => {
+    const [nombre, setNombre] = useState("");
+    const [edad, setEdad] = useState("");
+
+    useEffect(() => {
+        if (editData) {
+            setNombre(editData.nombre);
+            setEdad(editData.edad);
+        }
+    }, [editData]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit({ nombre, edad });
-        setNombre('');
-        setEdad('');
+        if (!nombre || !edad) return;
+        onSave({ nombre, edad, id: editData?.id });
+        setNombre("");
+        setEdad("");
     };
 
     return (
@@ -19,18 +26,15 @@ const PersonaForm = ({ onSubmit }) => {
                 placeholder="Nombre"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                required
             />
             <input
                 type="number"
                 placeholder="Edad"
                 value={edad}
                 onChange={(e) => setEdad(e.target.value)}
-                required
             />
-            <button type="submit">Agregar</button>
+            <button type="submit">{editData ? "Actualizar" : "Agregar"}</button>
         </form>
-
     );
 };
 

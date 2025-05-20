@@ -1,13 +1,13 @@
-// src/components/PersonaList.js
-import React from 'react';
+import React from "react";
 
-const PersonaList = ({ personas, onDelete }) => {
+const PersonaList = ({ personas, onEdit, onDelete }) => {
     return (
         <ul>
-            {personas.map((persona) => (
-                <li key={persona.id}>
-                    {persona.nombre} - {persona.edad} años
-                    <button onClick={() => onDelete(persona.id)}>Eliminar</button>
+            {personas.map((p) => (
+                <li key={p.id}>
+                    {p.nombre} - {p.edad} años
+                    <button onClick={() => onEdit(p)}>Editar</button>
+                    <button onClick={() => onDelete(p.id)}>Eliminar</button>
                 </li>
             ))}
         </ul>
