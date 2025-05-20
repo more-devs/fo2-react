@@ -30,6 +30,7 @@ const PersonaForm = ({ onSubmit }) => {
             />
             <button type="submit">Agregar</button>
         </form>
+
     );
 };
 
