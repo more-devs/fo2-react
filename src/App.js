@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import API from "./api";
-import PersonaForm from "./components/PersonaForm";
-import PersonaList from "./components/PersonaList";
+import PersonaForm from "./components/personaForm.js";
+import PersonaList from "./components/PersonaList.js";
+
 
 function App() {
     const [personas, setPersonas] = useState([]);
