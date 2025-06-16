@@ -19,16 +19,16 @@ function App() {
 
     const handleSave = async (persona) => {
         if (persona.id) {
-            await API.put(`/personas/${persona.id}`, persona);
+            await API.put(`/personass/${persona.id}`, persona);
         } else {
-            await API.post("/personas", persona);
+            await API.post("/personass", persona);
         }
         setEditData(null);
         fetchPersonas();
     };
 
     const handleDelete = async (id) => {
-        await API.delete(`/personas/${id}`);
+        await API.delete(`/personass/${id}`);
         fetchPersonas();
     };
 
