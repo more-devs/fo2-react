@@ -9,7 +9,7 @@ function App() {
     const [editData, setEditData] = useState(null);
 
     const fetchPersonas = async () => {
-        const res = await API.get("/personas");
+        const res = await API.get("/personass");
         setPersonas(res.data);
     };
 
